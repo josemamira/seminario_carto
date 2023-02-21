@@ -367,7 +367,7 @@ Resultado:
 
 # DESCARGA CARTOGRAFÍA OFICIAL PARA MAPAS COROPLÉTICOS
 
-IGN -> Centro de descargas -> Información Geográfica de Referencia -> Límites municipales, provinciales y autonómicos
+IGN &rarr; Centro de descargas &rarr; Información Geográfica de Referencia &rarr; Límites municipales, provinciales y autonómicos
 
 La descarga es un zip llamado “**líneas\_limite.zip**” con un tamaño de 124 Mb. Puedes utilizar la que hay en “seminario\\carto\_oficial”
 
@@ -432,7 +432,7 @@ Cod\_Municipio: **right( "NATCODE" ,6)**
 
 Filtros para quedarnos con todos los municipios de la CV
 
-Capa -> Filtrar -> "NATCODE" LIKE '341003%'
+Capa &rarr; Filtrar &rarr; "NATCODE" LIKE '341003%'
 
   
   
@@ -444,11 +444,11 @@ Capa -> Filtrar -> "NATCODE" LIKE '341003%'
 
 Filtro todos los municipios de :
 
-Alicante: Capa -> Filtrar -> **"NATCODE" LIKE '341003%'**
+Alicante: Capa &rarr; Filtrar &rarr; **"NATCODE" LIKE '341003%'**
 
-Valencia: Capa -> Filtrar -> **"NATCODE" LIKE '341046%'**
+Valencia: Capa &rarr; Filtrar &rarr; **"NATCODE" LIKE '341046%'**
 
-Murcia: Capa -> Filtrar -> **"NATCODE" LIKE '341430%'**
+Murcia: Capa &rarr; Filtrar &rarr; **"NATCODE" LIKE '341430%'**
 
 -
 
@@ -523,7 +523,7 @@ Seleccionar objeto por expresión ![](img/seminario_cartografia_economicas_html_
 
 ![](img/seminario_cartografia_economicas_html_6d4fbbfad53ef289.png)
 
-Generar centroides: Vectorial -> Herramientas de geometría -> Centroides : NUTS0\_point
+Generar centroides: Vectorial &rarr; Herramientas de geometría &rarr; Centroides : NUTS0\_point
 
 
 ![](img/seminario_cartografia_economicas_html_cf2729bce04eb02c.png)
@@ -531,20 +531,20 @@ Generar centroides: Vectorial -> Herramientas de geometría -> Centroides : NUTS
 Etiquetar:
 
 *   Cambia la codificación a UTF8
-*   Propiedades -> Etiquetar -> NAME\_LATN
+*   Propiedades &rarr; Etiquetar &rarr; NAME\_LATN
 
 
 ![](img/seminario_cartografia_economicas_html_99d85a5601d3d59a.png)
 
-Edición -> Mover etiquetas mal ubicadas (ejemplo: France)
+Edición &rarr; Mover etiquetas mal ubicadas (ejemplo: France)
 
 ![](img/seminario_cartografia_economicas_html_8bc04385ca2ced80.png)
 
 Unir las tablas:
 
 1.  Selecciona la capa NUTS0\_point
-2.  Ir a Propiedades -> Uniones
-3.  Relación Puntos (NUTS\_ID) -> Tabla (NUTS\_ID)
+2.  Ir a Propiedades &rarr; Uniones
+3.  Relación Puntos (NUTS\_ID) &rarr; Tabla (NUTS\_ID)
 
 ![](img/seminario_cartografia_economicas_html_69632a393806516f.png)
 
@@ -556,7 +556,7 @@ Resultado:
 
 Simbolizar:
 
-*   Ir a Propiedades -> Simbología
+*   Ir a Propiedades &rarr; Simbología
 *   Ir a la propiedad del tamaño del círculo y elije asistente
 
 ![](img/seminario_cartografia_economicas_html_b5c97634476438b0.png)
@@ -571,7 +571,7 @@ Resultado:
 
 **Añadir la leyenda**
 
-Ir a Propiedades -> Simbología -> Avanzado -> Tamaño de leyenda definido por datos -> Opción: leyenda contraída
+Ir a Propiedades &rarr; Simbología &rarr; Avanzado &rarr; Tamaño de leyenda definido por datos &rarr; Opción: leyenda contraída
 
 ![](img/seminario_cartografia_economicas_html_4e9982cf8e4b4faa.png)
 
@@ -629,7 +629,7 @@ Realizar un mapa coropletico con los datos de LAU y estadísticas del Instituto 
 
 **Descarga Excel:**
 
-[https://pegv.gva.es/es/bdt](https://pegv.gva.es/es/bdt) -> [Información estadística](https://pegv.gva.es/es/informacion-estadistica) > [Banco de datos de series](https://pegv.gva.es/es/banc-de-dades-de-series) > [**Banco de datos territorial**](https://pegv.gva.es/es/bdt) > Trabajo -> Estadística del movimiento laboral registrado -> Contrato según sexo
+[https://pegv.gva.es/es/bdt](https://pegv.gva.es/es/bdt) &rarr; [Información estadística](https://pegv.gva.es/es/informacion-estadistica) > [Banco de datos de series](https://pegv.gva.es/es/banc-de-dades-de-series) > [**Banco de datos territorial**](https://pegv.gva.es/es/bdt) &rarr; Trabajo &rarr; Estadística del movimiento laboral registrado &rarr; Contrato según sexo
 
 ![](img/seminario_cartografia_economicas_html_21364225008bfc2b.png)
 
@@ -661,13 +661,13 @@ Seleccionar los municipios de Alicante con esta expresión:
 
 ![](img/seminario_cartografia_economicas_html_87e95a298d7fefa0.png)
 
-Exportar objetos seleccionados como -> municipios\_03\_alicante.shp
+Exportar objetos seleccionados como &rarr; municipios\_03\_alicante.shp
 
 Eliminar la capa original y quedarse solo con la de Alicante
 
 Realizar el join:
 
-Municipios (LAU\_ID) –>  Tabla (CODINE)
+Municipios (LAU\_ID) &rarr;  Tabla (CODINE)
 
 ![](img/seminario_cartografia_economicas_html_25937034e9ba00e1.png)
 
@@ -699,15 +699,15 @@ Esto va de cartografía. Es decir, que hay que tener en cuenta:
 
 **Calcula estas columnas:**
 
-*   Km² de cada municipio (km2) -> **$area/1000000**
+*   Km² de cada municipio (km2) &rarr; **$area/1000000**
     
-*   Densidad de “Total de contratos/km² ” (densidad) -> **"T\_T\_2021" / "km2"**
+*   Densidad de “Total de contratos/km² ” (densidad) &rarr; **"T\_T\_2021" / "km2"**
     
-*   Contratos cada 100 habitantes (c100hab) -> **("T\_T\_2021" \* 100)/ "POP\_2020"**
+*   Contratos cada 100 habitantes (c100hab) &rarr; **("T\_T\_2021" \* 100)/ "POP\_2020"**
     
-*   Contratos cada 1000 habitantes (c1000hab) -> **("T\_T\_2021" \* 1000)/ "POP\_2020"**
+*   Contratos cada 1000 habitantes (c1000hab) &rarr;> **("T\_T\_2021" \* 1000)/ "POP\_2020"**
     
-*   Porcentaje de contratos respecto al total población del municipio (porc) -> **("T\_T\_2021" \* 100)/ "POP\_2020"**
+*   Porcentaje de contratos respecto al total población del municipio (porc) &rarr; **("T\_T\_2021" \* 100)/ "POP\_2020"**
     
 
 Ejemplo cálculo “km2”:
@@ -741,11 +741,11 @@ Compara el valor por defecto del mapa de Qgis …
 
 Los topónimos jerárquicos se realizan utilizando “Rule-based Labeling”. En este caso se utiliza la población para realizar una jerarquía de fuentes:
 
-*   Fuente 12: Mayor de 100 mil -> **"POP\_2020" >= 100000**
-*   Fuente 10 : Entre 50 y 100 mil -> **"POP\_2020" >= 50000 and "POP\_2020" < 100000**
-*   Fuente 8: Entre 10 y 50 mil -> **"POP\_2020" >= 10000 and "POP\_2020" < 50000**
-*   Fuente 7: Entre 5 y 10 mil -> **"POP\_2020" >= 5000 and "POP\_2020" < 10000**
-*   Fuente 6: Menos de 5 mil -> **"POP\_2020" <= 5000**
+*   Fuente 12: Mayor de 100 mil &rarr; **"POP\_2020" >= 100000**
+*   Fuente 10 : Entre 50 y 100 mil &rarr; **"POP\_2020" >= 50000 and "POP\_2020" < 100000**
+*   Fuente 8: Entre 10 y 50 mil &rarr; **"POP\_2020" >= 10000 and "POP\_2020" < 50000**
+*   Fuente 7: Entre 5 y 10 mil &rarr; **"POP\_2020" >= 5000 and "POP\_2020" < 10000**
+*   Fuente 6: Menos de 5 mil &rarr; **"POP\_2020" <= 5000**
 
 
 ![](img/seminario_cartografia_economicas_html_fdc31b8ace03db79.png)
@@ -792,7 +792,7 @@ Selecciona un nombre para el estilo
 
 **Aplicar un estilo**
 
-Selecciona la capa y en propiedades utiliza la opción de Estilo -> “Cargar estilo”
+Selecciona la capa y en propiedades utiliza la opción de Estilo &rarr; “Cargar estilo”
 
 ![](img/seminario_cartografia_economicas_html_804e50b969053f64.png)
 
@@ -969,10 +969,10 @@ Haz un join a la tabla “municipios” de las “comarcas” y también a las �
 
 Exporta el resultado a la geodatabase “elecciones” con el nombre “superjoin”
 
-2.  Virtual (SQL) -> Solo para geodatabases (no shapefiles)
+2.  Virtual (SQL) &rarr; Solo para geodatabases (no shapefiles)
     
 
-Ir al menú “Base de datos” -> Administrador de base de datos
+Ir al menú “Base de datos” &rarr; Administrador de base de datos
 
 Escribir esta sentencia SQL:
 
