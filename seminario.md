@@ -6,7 +6,7 @@
 > Autor **José Manuel Mira Martínez**
 
 
-# INDICE
+# ÍNDICE
 
 **Servicios de mapa**
 
