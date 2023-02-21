@@ -621,7 +621,7 @@ Resultado
 
 ![](img/seminario_cartografia_economicas_html_937759911e10ad7d.png)
 
-**PRÁCTICA LAU**:
+# PRÁCTICA LAU:
 
 **Objetivo**:
 
