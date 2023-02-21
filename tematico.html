@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Temático de coropletas con Leaflet</title>
+	
+    <link rel="stylesheet" href="js/leaflet.css"/>
+    <script src="js/leaflet.js"></script>
+    <script src="geojson/tematico.js"></script>
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+
+	</style>
+
+	<style>
+     #map {position:absolute; top:0; bottom:0; width:100%;}
+.info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+.legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }</style>
+</head>
+<body>
+
+<div id='map'></div>
+
+
+
+<script type="text/javascript">
+
+	const map = L.map('map').setView([38.5, -0.61], 9);
+
+	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		//maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+
+	// control que muestra el estado en onhover
+	const info = L.control();
+
+	info.onAdd = function (map) {
+		this._div = L.DomUtil.create('div', 'info');
+		this.update();
+		return this._div;
+	};
+
+	info.update = function (props) {
+		const contents = props ? `<b>${props.LAU_NAME}</b><br />${Math.round(props.POP_DENS_2)} hab / m<sup>2</sup>` : 'Pasa el rat&oacute;n encima de un municipio';
+		this._div.innerHTML = `<h4>Datos municipales</h4>${contents}`;
+	};
+
+	info.addTo(map);
+
+
+	// obtener el color dependiendo de la columna seleccionada. En este caso es POP_DENS2 (densidad)
+	function getColor(d) {
+		return d > 2000 ? '#7a0177' :
+			d > 1000   ? '#c51b8a' :
+			d > 500   ? '#f768a1' :
+			d > 200   ? '#fbb4b9' : '#feebe2';
+	}
+
+	function style(feature) {
+		return {
+			weight: 2,
+			opacity: 1,
+			color: 'white',
+			dashArray: '3',
+			fillOpacity: 0.7,
+			fillColor: getColor(feature.properties.POP_DENS_2)
+		};
+	}
+
+	function highlightFeature(e) {
+		const layer = e.target;
+
+		layer.setStyle({
+			weight: 5,
+			color: '#666',
+			dashArray: '',
+			fillOpacity: 0.7
+		});
+
+		layer.bringToFront();
+
+		info.update(layer.feature.properties);
+	}
+
+	/* definir los municipios */
+	const geojson = L.geoJson(municipios, {
+		style,
+		onEachFeature
+	}).addTo(map);
+
+	function resetHighlight(e) {
+		geojson.resetStyle(e.target);
+		info.update();
+	}
+
+	function zoomToFeature(e) {
+		map.fitBounds(e.target.getBounds());
+	}
+
+	function onEachFeature(feature, layer) {
+		layer.on({
+			mouseover: highlightFeature,
+			mouseout: resetHighlight,
+			click: zoomToFeature
+		});
+	}
+
+	map.attributionControl.addAttribution('<a href="https://pegv.gva.es/es/">Portal Estadístico de la Generalitat Valenciana</a>');
+
+
+	const legend = L.control({position: 'bottomright'});
+
+	legend.onAdd = function (map) {
+
+		const div = L.DomUtil.create('div', 'info legend');
+		const grades = [0, 200, 500, 1000, 2000];
+		const labels = [];
+		let from, to;
+
+		for (let i = 0; i < grades.length; i++) {
+			from = grades[i];
+			to = grades[i + 1];
+
+			labels.push(`<i style="background:${getColor(from + 1)}"></i> ${from}${to ? `&ndash;${to}` : '+'}`);
+		}
+
+		div.innerHTML = labels.join('<br>');
+		return div;
+	};
+
+	legend.addTo(map);
+
+</script>
+
+
+
+</body>
+</html>

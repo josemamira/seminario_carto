@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+  <head>
+    <title>Primer ensayo con Leaflet</title>
+    <link rel="stylesheet" href="js/leaflet.css"/>
+    <script src="js/leaflet.js"></script>
+    <script src="geojson/casa.js"></script>
+    <style>
+     body {margin:0; padding:0;}
+     #map {position:absolute; top:0; bottom:0; width:100%;}
+    </style>
+  </head>
+  <body>
+   <div id="map"></div>
+    <script>
+  /* Pon atención para indicar el punto. Primero la longitud y luego la latitud. Finalmente el nivel de zoom, 
+  que va de 1 a 18
+  */
+  var map = L.map('map').setView([38.382705119761766,-0.5114731888846222], 18);
+  /* Abajo se define la capa XYZ de fondo.   Si quieres cambiarla visita:
+   https://leaflet-extras.github.io/leaflet-providers/preview/
+  */
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+      maxZoom: 18
+  }).addTo(map);
+  /* Ahora definimos el enlace al Geojson y un evento para mostrar los atributos con el click */
+  var casa = L.geoJson(casa,{
+     onEachFeature: function(feature, layer){
+        layer.bindPopup('<strong>'+feature.properties["municipio"] + '</strong><br>Población: '+ '(' + feature.properties["poblacion"] + ')')
+     }
+  }).addTo(map);
+    </script>
+  </body> 
+</html>
