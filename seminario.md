@@ -1,7 +1,8 @@
 
 # Seminario de cartografía 
-## 22 febrero de 2023
-## José Manuel Mira Martínez
+
+> Fecha **23 febrero de 2023**
+> Autor **José Manuel Mira Martínez**
 
 
 # INDICE
