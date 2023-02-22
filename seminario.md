@@ -107,7 +107,8 @@ Ejemplo Web: [https://josemamira.github.io/rutas\_geofis/](https://josemamira.gi
 
 En WMS/WMTS:
 
-[https://terramapas.icv.gva.es/cgi-bin/mapserv6.fcgi?map=/srv\_apl/mapserv/servicios/01\_cartografia/01\_series/map/topografico\_continuo\_gdb.map](https://terramapas.icv.gva.es/cgi-bin/mapserv6.fcgi?map=/srv_apl/mapserv/servicios/01_cartografia/01_series/map/topografico_continuo_gdb.map)
+[https://terramapas.icv.gva.es/mapabase_topografico/wmts?service=wmts&request=getcapabilities](https://terramapas.icv.gva.es/mapabase_topografico/wmts?service=wmts&request=getcapabilities)
+
 
 **Práctica**: Prueba añadiendo este WMS de arriba
 
